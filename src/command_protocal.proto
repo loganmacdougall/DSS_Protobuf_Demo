@@ -1,0 +1,32 @@
+option optimize_for = CODE_SIZE;
+
+package command;
+
+enum Device {
+  IPC = 000;
+  ADC = 100;
+  CMM = 200;
+  EPS = 300;
+  OBM = 400;
+  OBA = 500;
+  PAY = 600;
+  SFT = 700;
+  THM = 800;
+}
+
+message Command {
+  required uint32 cmd = 1;
+
+  required Device src = 2;
+  required Device dst = 3;
+
+  required uint32 dtt = 4;
+  required uint32 sig = 5;
+
+  oneof data {
+    string string_d = 6;
+    bytes bytes_d = 7;
+    int64 int_d = 8;
+    double double_d = 9;
+  }
+}
