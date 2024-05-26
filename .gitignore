@@ -1,0 +1,3 @@
+src/command_protocal.pb.cc
+src/command_protocal.pb.h
+build/
