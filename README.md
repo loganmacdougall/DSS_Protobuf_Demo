@@ -1,12 +1,14 @@
 # DSS Protobuf Demo
 This is a demonstration on how protobuf can be used at DSS. This includes setting up the CMake and code for sending and recving protobuf objects in C++
 
+![Working Screenshot](https://github.com/loganmacdougall/DSS_Protobuf_Demo/blob/main/DSS_protobuf_demo.png)
+
 ## Setup
 You will need to clone this repository:
   
 `$  git clone https://github.com/loganmacdougall/DSS_Protobuf_Demo.git`
 
-You will need to enter the Nix Shell from the [MANTIS-DevEnv repo](https://github.com/DalhousieSpaceSystemsLab/MANTIS-DevEnv). This will allow you to compile the demo.
+You will need to enter the Nix Shell from the [MANTIS-DevEnv repo](https://github.com/DalhousieSpaceSystemsLab/MANTIS-DevEnv). This will allow you to compile the demo. The important nix packages allowing this demo to compile are gcc, cmake, protobuf, and abseil-cpp
 
 You then go into the demo repository and type the following commands to setup the build folder:
 
