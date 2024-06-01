@@ -16,25 +16,23 @@ int main() {
   if (socket < 0)
     return -1;
 
-  command::Command *serverCommand = new command::Command();
+  command::Command serverCommand;
 
-  serverCommand->set_cmd(504);
-  serverCommand->set_src(command::IPC);
-  serverCommand->set_dst(command::OBA);
-  serverCommand->set_dtt(100);
-  serverCommand->set_sig(1);
+  serverCommand.set_cmd(504);
+  serverCommand.set_src(command::IPC);
+  serverCommand.set_dst(command::OBA);
+  serverCommand.set_dtt(100);
+  serverCommand.set_sig(1);
 
-  serverCommand->set_int_d(123456);
+  serverCommand.set_int_d(123456);
 
-  std::cout << "------ sending following command ------" << std::endl;
-  std::cout << serverCommand->DebugString();
+  std::cout << "------ Sending message to server ------" << std::endl;
+  std::cout << serverCommand.DebugString();
   std::cout << "---------------------------------------" << std::endl;
 
-  serverCommand->SerializePartialToArray(buffer, SIZE);
+  serverCommand.SerializePartialToArray(buffer, SIZE);
 
   send(socket, buffer, SIZE, 0);
-
-  delete serverCommand;
 
   return 0;
 }

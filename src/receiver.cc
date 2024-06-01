@@ -17,14 +17,12 @@ int main() {
   int socket = accept(serverSocket, nullptr, nullptr);
   int messageLen = recv(socket, buffer, sizeof(buffer), 0);
 
-  command::Command *clientCommand = new command::Command();
-  clientCommand->ParseFromArray(buffer, messageLen);
+  command::Command clientCommand;
+  clientCommand.ParseFromArray(buffer, messageLen);
 
   std::cout << "----- Recived message from client -----" << std::endl;
-  std::cout << clientCommand->DebugString();
+  std::cout << clientCommand.DebugString();
   std::cout << "---------------------------------------" << std::endl;
-
-  delete clientCommand;
 
   return 0;
 }
